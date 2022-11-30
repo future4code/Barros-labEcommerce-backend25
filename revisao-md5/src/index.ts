@@ -8,3 +8,4 @@ import deleteCharacter from "./endpoints/deleteCharacter";
 app.get("/character", getAllCharacters)
 app.put("/character", createCharacter)
 app.delete("/character/:id", deleteCharacter)
+
