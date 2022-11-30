@@ -13,7 +13,7 @@ export default async function getAllCharacters(req: Request, res: Response): Pro
         const resultsPerPage = 5
         const offset = resultsPerPage * ( Number (page) -1)
 
-        debugger
+       // debugger
 
         const characters: character[] = await connection("character")
            .where("name","like",`%${name}%`)
