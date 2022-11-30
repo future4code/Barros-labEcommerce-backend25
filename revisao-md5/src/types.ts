@@ -1,4 +1,4 @@
-export type Movie = {
+export type movie = {
     id: number;
     title: string;
     year: number;
@@ -10,7 +10,7 @@ export enum GENDER {
     OTHER = 'other'
 }
 
-export type Character = {
+export type character = {
     id: number;
     name: string;
     gender: GENDER;

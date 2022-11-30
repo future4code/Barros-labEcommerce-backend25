@@ -1,14 +1,22 @@
 import { Request, Response } from "express";
-import { character } from "../data";
+import connection from "../connection";
 
-export default function createCharacter(req: Request, res: Response):void{
-    const {name, gender, description}= req.body
+export default async function createCharacter(req: Request, res: Response): Promise<void> {
+    try {
+        const { name, gender, description } = req.body
+        //BLOCO ANTES DE UTILIZAÇÃO DO SQL
+        // characters.push({
+        //     id: Date.now(),
+        //     name,
+        //     gender,
+        //     description
+        // })
+        await connection("character")
+            .insert({ name, gender, description })
 
-    character.push({
-        id: Date.now(),
-        name,
-        gender,
-        description
-    })
-    res.status(201).end()
+        res.status(201).end()
+
+    } catch (e: any) {
+        res.status(500).end("Unexpected error")
+    }
 }
